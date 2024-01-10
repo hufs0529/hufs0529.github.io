@@ -8,6 +8,7 @@ tags: hadoop
 
 ## HDFS 아키텍처
 - 개론: HDFS는 내결함성을 가지고 저비용으로 설계된 시스템이다. HDFS는 애플리케이션에서 발생하는 높은 처치량 소화 가능하며 거대한 데이터를 다룰 때 사용된다.
+
 - 목적: 
 
 1. Hardware Failure
@@ -23,7 +24,7 @@ tags: hadoop
 높은 데이터 처리량을 위해 설계되었다. MapReduce와 웁 크롤링 어플리케이션이 이상적으로 이 모델에 적합하다.
 
 4. Moving Computation is cheaper than moving data
- 연산 과정이 물리적으로 인접할 경우 특히 데이터의 양이 방대할수록 더 효율적인 연산이 된다. 이 시스템은 ㄴ트워크 혼잡을 줄여주고 전체적인 처리량을 올려준다.
+ 연산 과정이 물리적으로 인접할 경우 특히 데이터의 양이 방대할수록 더 효율적인 연산이 된다. 이 시스템은 네트워크 혼잡을 줄여주고 전체적인 처리량을 올려준다.
 
 5. Portability Across Heterogeneous Hardware and Software Platforms
 HDFS는 다른 플랫폼으로 쉽게 이동 가능하게 설계되었다. 이것은 HDFS의 adoption을 높여주고 많은 플랫폼과 연동성이 높아진다.
