@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Hadoop 개념"
-subtitle:   "AWSome Day에 다녀왔다."
+title:  "Hadoop Architecture"
+subtitle:   "하둡 기초 다지기"
 categories: review
 tags: hadoop
 ---
