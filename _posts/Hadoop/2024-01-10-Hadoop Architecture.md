@@ -214,7 +214,8 @@ drwxr-xr-x   - hadoop hadoop          0 2015-05-08 12:40 delete/test2
 
 - test1을 삭제한다면 trash directory로 이동한다
 
-```$ hadoop fs -rm -r delete/test1
+```
+$ hadoop fs -rm -r delete/test1
 Moved: hdfs://localhost:8020/user/hadoop/delete/test1 to trash at: hdfs://localhost:8020/user/hadoop/.Trash/Current
 ```
 
@@ -226,6 +227,7 @@ Deleted delete/test2
 ```
 
 - 다음을 통해 test1이 trash directory로 이동한 것을 확인할 수 있다.
+
 ```
 $ hadoop fs -ls .Trash/Current/user/hadoop/delete/
 Found 1 items\

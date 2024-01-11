@@ -141,6 +141,8 @@ spec:
       targetPort: 9377
 ```
 
+![Alt text](image-4.png)
+
 #### Service type
 - Service를 통해 클러스터 외부에 애플리케이션을 노추시킬 수 있으며 여러 방식의 type이 있다.
     1. ClusterIP
@@ -199,6 +201,7 @@ spec:
 
 #### ExternalIPs
 - 여러 클러스터 노드를 라우트 하는 외부 IP가 있을 경우, K8s Service는 외부 IP에 노출될 수 있다. 트래픽이 클러스터 안으로 외부 IP를 통해 들어오고 서비스와 매칭될 때 Kubernetes가 구성한 규칙 및 경로는 트래픽이 해당 서비스의 엔드포인트 중 하나로 라우팅되도록 한다.
+
 ```
 apiVersion: v1
 kind: Service
