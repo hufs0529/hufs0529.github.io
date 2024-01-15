@@ -1,0 +1,59 @@
+---
+layout: post
+title:  "보안그룹 Port 찾기"
+subtitle:   "외부에서 내부 통신"
+categories: review
+tags: Linux
+---
+
+## 외부 -> 내부
+- UDP 포트탐지 명령어: nc-z-w 1 -u IP Port
+- 열림
+```
+$ nc -z -w 1 -u 8.8.8.8 53
+$ Connection to 8.8.8.8 53 port [udp/*] succeeded!
+```
+
+- 닫힘
+```
+$ nc -z -w 1 -u 8.8.8.8 21
+$ 커맨드로 그냥 나옴
+```
+문제점: UDP 다 뚫려 있고 UDP는 22번 제외 다 막혀있음
+
+
+    1. 서버:
+    - nc명령어를 통해 외부 -> 내부 통신 시도
+    ```
+    echo 111 | nc -l Port
+    ```
+    2. 클라이언트:
+    - 외부에서 오는 신호 수신
+    ```
+    nc IP Port
+    ``` 
+
+- 문제점: TCP 통신 확인 UDP는...??!! 안되나
+
+
+## Linux Instance 접속의 대상이 되는 서버에 대한 설정
+```
+vi /etc/ssh/sshd_config
+```
+
+<br>
+
+```
+// SSH 클라이언트에서 원격 서버로 에이전트를 포워딩할 수 있도록 허용
+AllowAgentForwarding yes
+// TCP 포워딩 허용
+AllowTcpForwarding yes
+// 로컬에서만 가능한 연결을 외부도 가능하게 변경 해주는 옵션
+GatewayPorts yes
+```
+
+<br>
+
+```
+sudo systemctl restart ssh
+```
