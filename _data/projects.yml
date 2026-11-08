@@ -1,0 +1,58 @@
+# 포트폴리오 목록의 단일 원본. 프로젝트를 추가하려면 항목 하나와 _projects/<id>.md 하나를 만든다.
+# 순서 = 화면에 보이는 순서.
+#
+# id        : _projects/<id>.md 파일 이름, 글 front matter 의 project 값과 같아야 한다
+# status    : 진행 중 | 완료 | 보관
+# featured  : true 면 카드가 넓게 보인다
+
+- id: danbi-p1
+  title: 단비 데이터 플랫폼 P1 — 실시간 CDC 거버넌스 레이크하우스
+  summary: >-
+    주문·결제 DB 의 모든 변경을 Debezium·MSK·Flink 로 Iceberg 레이크에 옮기고,
+    개인정보는 수집 순간 가리며, 검사를 통과한 매출만 공개하는 AWS 데이터 플랫폼.
+  period: 2026.10 – 2026.11
+  role: 1인 (설계 · 구현 · Terraform · AWS 배포 · 장애 대응)
+  status: 완료
+  featured: true
+  cover: /assets/img/portfolio/danbi-p1/cover.png
+  stack: [AWS, Terraform, Debezium, Kafka(MSK), Flink, Iceberg, Spark(EMR), dbt, Athena, Airflow(MWAA), Lake Formation]
+  highlights:
+    - 수집 시점 개인정보 토큰화·암호화 + crypto-shredding 파기
+    - 원천 커밋 순서(binlog·LSN) 기준 멱등 MERGE
+    - Write-Audit-Publish 로 검사 통과한 Gold 만 공개
+    - PG 정산 파일과 3단계 대사, 원인 코드 분류
+  repo: https://github.com/hufs0529/danbi-data-platform
+
+- id: optometry-databricks
+  title: 1001 Optometry — 외주 원격 DB 에서 Azure Databricks 레이크하우스로
+  summary: >-
+    호주 안경 체인 1001 Optometry 에서 인턴으로 일하며, 외주 업체가 관리하는 원격 DB(읽기는 replica,
+    쓰기는 외주 API)에 묶여 있던 사내 데이터를 Azure Databricks 로 옮기는 작업에 참여했습니다.
+    replica 증분 수집과 외주 API 쓰기 경로 설계를 맡았습니다.
+  period: 2026.05 – 2026.07 (호주, 2개월)
+  role: Data Engineering Intern · 수집 파이프라인 · 쓰기 경로
+  status: 완료
+  featured: true
+  cover: /assets/img/portfolio/optometry-databricks/cover.svg
+  stack: [Azure Databricks, Apache Spark, Delta Lake, Unity Catalog, SQL Server, REST API, Python]
+  highlights:
+    - 읽기 전용 replica 에서 Bronze Delta 로 들어오는 증분 수집 (워터마크·겹침 구간·멱등 MERGE)
+    - replica 지연을 고려한 수집 기준점과 삭제 감지
+    - 외주 쓰기 API 앞에 요청·감사 로그와 반영 검증을 두는 쓰기 게이트웨이
+    - 읽기 → 쓰기 순서의 단계적 전환 (strangler 방식)
+  repo: https://github.com/hufs0529/optometry-databricks-migration
+
+# ── 다음 프로젝트 템플릿 ─────────────────────────────────────────────
+# - id: my-next-project
+#   title: 프로젝트 이름
+#   summary: >-
+#     한두 문장 요약
+#   period: 2025.03 – 2025.06
+#   role: 백엔드 · 데이터 파이프라인
+#   status: 완료
+#   featured: false
+#   cover: /assets/img/portfolio/my-next-project/cover.png
+#   stack: [Python, Airflow]
+#   highlights:
+#     - 핵심 성과 1
+#   repo: https://github.com/hufs0529/my-next-project

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Pretendard, 'Noto Sans KR', 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="arO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#f8fafc"/>
+
+  <text x="600" y="58" text-anchor="middle" font-size="30" font-weight="700" fill="#0f172a">외주 원격 DB 의존 구조 → Azure Databricks 레이크하우스</text>
+  <text x="600" y="94" text-anchor="middle" font-size="18" fill="#475569">1001 Optometry · Data Engineering Intern · 2026.05 – 2026.07</text>
+
+  <!-- BEFORE -->
+  <rect x="40" y="130" width="500" height="460" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="64" y="166" font-size="20" font-weight="700" fill="#64748b">BEFORE</text>
+
+  <rect x="80" y="200" width="420" height="150" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="6 4"/>
+  <text x="290" y="226" text-anchor="middle" font-size="16" fill="#475569">외주 업체 관리 영역</text>
+  <rect x="105" y="245" width="160" height="80" rx="10" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="185" y="280" text-anchor="middle" font-size="16" font-weight="600" fill="#0f172a">원격 운영 DB</text>
+  <text x="185" y="303" text-anchor="middle" font-size="14" fill="#475569">SQL Server</text>
+  <rect x="315" y="245" width="160" height="80" rx="10" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="395" y="280" text-anchor="middle" font-size="16" font-weight="600" fill="#0f172a">Replica DB</text>
+  <text x="395" y="303" text-anchor="middle" font-size="14" fill="#475569">읽기 전용</text>
+  <line x1="265" y1="285" x2="313" y2="285" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+
+  <rect x="105" y="420" width="160" height="56" rx="10" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="185" y="454" text-anchor="middle" font-size="16" font-weight="600" fill="#9a3412">외주 쓰기 API</text>
+  <rect x="200" y="520" width="180" height="50" rx="10" fill="#ffffff" stroke="#334155"/>
+  <text x="290" y="551" text-anchor="middle" font-size="16" font-weight="600" fill="#0f172a">사내 업무·분석</text>
+
+  <line x1="185" y1="418" x2="185" y2="330" stroke="#ea580c" stroke-width="2" marker-end="url(#arO)"/>
+  <line x1="250" y1="518" x2="200" y2="480" stroke="#ea580c" stroke-width="2" marker-end="url(#arO)"/>
+  <text x="140" y="508" font-size="13" fill="#9a3412">insert·update·delete</text>
+  <line x1="395" y1="330" x2="330" y2="516" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="372" y="450" font-size="13" fill="#475569">read (직접 조회)</text>
+
+  <!-- arrow between -->
+  <line x1="552" y1="360" x2="640" y2="360" stroke="#0f172a" stroke-width="4" marker-end="url(#ar)"/>
+
+  <!-- AFTER -->
+  <rect x="660" y="130" width="500" height="460" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="684" y="166" font-size="20" font-weight="700" fill="#ff3621">AFTER · Azure Databricks</text>
+
+  <rect x="690" y="195" width="140" height="56" rx="10" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="760" y="229" text-anchor="middle" font-size="15" font-weight="600" fill="#0f172a">Replica DB</text>
+  <rect x="990" y="195" width="140" height="56" rx="10" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="1060" y="229" text-anchor="middle" font-size="15" font-weight="600" fill="#9a3412">외주 쓰기 API</text>
+
+  <rect x="690" y="290" width="440" height="200" rx="12" fill="#fff1ee" stroke="#ff3621"/>
+  <text x="910" y="316" text-anchor="middle" font-size="15" fill="#b42318">Delta Lake · Unity Catalog</text>
+  <rect x="710" y="332" width="120" height="50" rx="8" fill="#fde68a" stroke="#b45309"/>
+  <text x="770" y="363" text-anchor="middle" font-size="15" font-weight="600" fill="#78350f">Bronze</text>
+  <rect x="850" y="332" width="120" height="50" rx="8" fill="#e5e7eb" stroke="#6b7280"/>
+  <text x="910" y="363" text-anchor="middle" font-size="15" font-weight="600" fill="#1f2937">Silver</text>
+  <rect x="990" y="332" width="120" height="50" rx="8" fill="#fef3c7" stroke="#ca8a04"/>
+  <text x="1050" y="363" text-anchor="middle" font-size="15" font-weight="600" fill="#713f12">Gold</text>
+  <line x1="830" y1="357" x2="848" y2="357" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="970" y1="357" x2="988" y2="357" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="850" y="410" width="260" height="56" rx="8" fill="#ffffff" stroke="#ea580c"/>
+  <text x="980" y="436" text-anchor="middle" font-size="14" font-weight="600" fill="#9a3412">쓰기 게이트웨이</text>
+  <text x="980" y="455" text-anchor="middle" font-size="12" fill="#9a3412">요청·감사 로그 · 재시도 · 반영 검증</text>
+
+  <line x1="760" y1="253" x2="768" y2="330" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="700" y="282" font-size="12" fill="#475569">증분 수집</text>
+  <line x1="1060" y1="408" x2="1060" y2="253" stroke="#ea580c" stroke-width="2" marker-end="url(#arO)"/>
+
+  <rect x="790" y="520" width="240" height="50" rx="10" fill="#ffffff" stroke="#334155"/>
+  <text x="910" y="551" text-anchor="middle" font-size="16" font-weight="600" fill="#0f172a">사내 분석·업무</text>
+  <line x1="910" y1="490" x2="910" y2="518" stroke="#475569" stroke-width="2" marker-end="url(#ar)"/>
+</svg>
