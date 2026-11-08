@@ -42,6 +42,26 @@
     - 읽기 → 쓰기 순서의 단계적 전환 (strangler 방식)
   repo: https://github.com/hufs0529/optometry-databricks-migration
 
+- id: spark-workflow-builder
+  title: Spark · Kubernetes 기반 드래그 앤 드롭 데이터 분석 워크플로우 도구
+  summary: >-
+    Hadoop 기반 빅데이터 Hub 플랫폼의 분석 도구로, 사용자가 드래그 앤 드롭으로 데이터 처리 흐름을 만들고
+    Spark 로 실행하는 서비스를 3인 팀(팀장 1 · 개발 2)에서 개발했습니다. 샘플 Parquet 사전 검증,
+    단계별 디스크 저장으로 OOM 해결, 비동기 실행과 진행도·취소, Airflow 디스크 관리를 맡았습니다.
+  period: 2024.01 – 2024.07 (7개월)
+  role: 데이터 엔지니어 · 개발 2인 중 1명 (팀장은 설계·코드 리뷰)
+  status: 완료
+  featured: true
+  cover: /assets/img/portfolio/spark-workflow-builder/cover.svg
+  stack: [Apache Spark, Kubernetes, Airflow, Parquet, Hadoop(HDFS), Spark REST API]
+  highlights:
+    - 샘플 Parquet + Spark 로 워크플로우 설정 단계에서 오류·정합성 사전 판단
+    - 수십 단계 · 대용량 워크플로우의 OOM 을 단계별 디스크 저장으로 해결 (속도 ↔ 안정성 trade-off)
+    - Spark REST API 진행도, 동시 실행 제한, SIGTERM 기반 취소
+    - Airflow 로 디스크 사용량 알림과 UI 에서 실행하는 수동 정리
+    - 프론트엔드 팀과 시각화 방식 · 데이터 포맷 계약 협의
+  repo: https://github.com/hufs0529/spark-workflow-builder
+
 # ── 다음 프로젝트 템플릿 ─────────────────────────────────────────────
 # - id: my-next-project
 #   title: 프로젝트 이름
