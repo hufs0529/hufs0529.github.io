@@ -1,0 +1,30 @@
+{%- comment -%}
+  프로젝트 시리즈 목록 + 이전/다음 글 + 프로젝트 상세로 돌아가기.
+  글 front matter: project: <id>, series_order: <번호>
+  프로젝트 상세 페이지에서 부를 때: {% include project-series.html project="<id>" %}
+{%- endcomment -%}
+{%- assign pid = include.project | default: page.project -%}
+{%- assign series = site.posts | where: "project", pid | sort: "series_order" -%}
+{%- assign proj = site.data.projects | where: "id", pid | first -%}
+{%- assign proj_url = '/portfolio/' | append: pid | append: '/' | relative_url -%}
+{%- if series.size > 0 -%}
+<div class="pf-series">
+<div class="pf-series-title">📚 {% if proj %}<a href="{{ proj_url }}">{{ proj.title }}</a>{% else %}시리즈{% endif %} — 기능별 설명 {{ series.size }}편</div>
+<ol>
+{%- for s in series -%}
+<li{% if s.url == page.url %} class="current"{% endif %}><a href="{{ s.url | relative_url }}">{{ s.short_title | default: s.title }}</a></li>
+{%- endfor -%}
+</ol>
+{%- if page.project -%}
+{%- for s in series -%}{%- if s.url == page.url -%}
+{%- assign i = forloop.index0 -%}
+{%- assign prev_i = i | minus: 1 -%}{%- assign next_i = i | plus: 1 -%}
+<div class="pf-nav">
+<span>{% if prev_i >= 0 %}{% assign pv = series[prev_i] %}← <a href="{{ pv.url | relative_url }}">{{ pv.short_title | default: pv.title }}</a>{% endif %}</span>
+<span><a href="{{ proj_url }}">프로젝트 개요</a></span>
+<span>{% if next_i < series.size %}{% assign nx = series[next_i] %}<a href="{{ nx.url | relative_url }}">{{ nx.short_title | default: nx.title }}</a> →{% endif %}</span>
+</div>
+{%- endif -%}{%- endfor -%}
+{%- endif -%}
+</div>
+{%- endif -%}

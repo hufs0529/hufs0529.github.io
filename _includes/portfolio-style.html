@@ -1,0 +1,44 @@
+<style>
+  /* 포트폴리오 카드·시리즈 목록. Chirpy 의 색 변수를 써서 라이트·다크 모드를 따라간다 */
+  .pf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; }
+  .pf-card { display: flex; flex-direction: column; border: 1px solid var(--main-border-color, rgba(0,0,0,.1));
+    border-radius: .75rem; overflow: hidden; background: var(--card-bg, transparent); transition: transform .15s, box-shadow .15s; }
+  .pf-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+  .pf-card.featured { grid-column: 1 / -1; }
+  /* Chirpy 가 img 를 감싼 <a> 에 img-link 클래스를 붙이므로 링크 자체를 블록으로 만들어 이미지가 카드 폭을 꽉 채우게 한다 */
+  .pf-cover-link { display: block; line-height: 0; border-bottom: 1px solid var(--main-border-color, rgba(0,0,0,.1)); }
+  .pf-cover { display: block; width: 100%; aspect-ratio: 1200 / 630; object-fit: cover; margin: 0 !important; border-radius: 0 !important;
+    background: var(--main-border-color, #eee); }
+  /* featured: 위에 넓은 커버, 아래 본문은 왼쪽(제목·요약·링크) / 오른쪽(핵심 포인트) 2단 */
+  @media (min-width: 768px) {
+    .pf-card.featured .pf-body { display: grid; grid-template-columns: 1.15fr 1fr; column-gap: 1.75rem; row-gap: .5rem;
+      grid-template-rows: auto auto auto 1fr auto;
+      grid-template-areas: "title hl" "meta hl" "summary hl" "links hl" "tags tags"; padding: 1.25rem 1.5rem 1.4rem; }
+    .pf-card.featured .pf-body > h3 { grid-area: title; font-size: 1.3rem; }
+    .pf-card.featured .pf-meta { grid-area: meta; }
+    .pf-card.featured .pf-summary { grid-area: summary; }
+    .pf-card.featured .pf-links { grid-area: links; align-self: end; }
+    .pf-card.featured .pf-hl { grid-area: hl; align-self: start; padding: .75rem 1rem .75rem 2rem; border-radius: .5rem;
+      background: var(--main-border-color, rgba(0,0,0,.04)); }
+    .pf-card.featured .pf-tags { grid-area: tags; margin-top: .5rem; padding-top: .85rem; border-top: 1px dashed var(--main-border-color, rgba(0,0,0,.12)); }
+  }
+  .pf-body { padding: 1rem 1.15rem 1.15rem; display: flex; flex-direction: column; gap: .5rem; flex: 1; }
+  .pf-body h3 { margin: 0; font-size: 1.15rem; line-height: 1.4; }
+  .pf-body h3 a { color: inherit; }
+  .pf-meta { font-size: .82rem; opacity: .75; }
+  .pf-summary { font-size: .95rem; margin: 0; }
+  .pf-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: auto; }
+  .pf-tags span { font-size: .75rem; padding: .1rem .5rem; border-radius: 999px; border: 1px solid var(--main-border-color, rgba(0,0,0,.15)); }
+  .pf-status { font-size: .72rem; padding: .05rem .45rem; border-radius: .3rem; background: var(--prompt-tip-bg, rgba(0,150,80,.12)); margin-left: .35rem; vertical-align: middle; }
+  .pf-hl { margin: 0; padding-left: 1.1rem; font-size: .88rem; }
+  .pf-hl li { margin: .2rem 0; }
+  .pf-links { display: flex; gap: .75rem; font-size: .88rem; }
+
+  .pf-series { border: 1px solid var(--main-border-color, rgba(0,0,0,.1)); border-radius: .6rem; padding: .9rem 1.1rem; margin: 1.25rem 0; }
+  .pf-series .pf-series-title { font-weight: 600; margin-bottom: .4rem; }
+  .pf-series ol { margin: 0; padding-left: 1.3rem; }
+  .pf-series li { margin: .15rem 0; }
+  .pf-series li.current { font-weight: 600; }
+  .pf-series li.current a { pointer-events: none; color: inherit; }
+  .pf-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: .7rem; font-size: .9rem; }
+</style>
