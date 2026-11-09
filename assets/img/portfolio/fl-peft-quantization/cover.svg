@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Pretendard, 'Noto Sans KR', 'Segoe UI', sans-serif">
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <text x="600" y="58" text-anchor="middle" font-size="27" font-weight="700" fill="#0f172a">연합학습에서 양자화 × 데이터 이질성은 상호작용하는가</text>
+  <text x="600" y="94" text-anchor="middle" font-size="18" fill="#475569">Federated LoRA · QLoRA · Qwen2.5-0.5B · Dolly-15k · Macquarie University STEM Placement · 6주</text>
+
+  <!-- left: design grid -->
+  <rect x="40" y="130" width="560" height="460" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="64" y="166" font-size="19" font-weight="700" fill="#334155">요인 설계 3 × 2 × 4 = 24조합</text>
+  <g font-size="15" fill="#475569" text-anchor="middle">
+    <text x="215" y="205">α = 0.1</text><text x="315" y="205">α = 1</text><text x="415" y="205">α = 10</text><text x="515" y="205">α = 100</text>
+  </g>
+  <g font-size="15" font-weight="600" fill="#0f172a">
+    <text x="64" y="257">bf16 LoRA</text>
+    <text x="64" y="377">INT8 QLoRA</text>
+    <text x="64" y="497">NF4 QLoRA</text>
+  </g>
+  <g font-size="13" fill="#64748b"><text x="64" y="277">FedAvg / FedProx</text><text x="64" y="397">FedAvg / FedProx</text><text x="64" y="517">FedAvg / FedProx</text></g>
+  <g>
+    <!-- row bf16 -->
+    <rect x="170" y="225" width="90" height="38" rx="6" fill="#e0f2fe"/><rect x="170" y="267" width="90" height="38" rx="6" fill="#bae6fd"/>
+    <rect x="270" y="225" width="90" height="38" rx="6" fill="#e0f2fe"/><rect x="270" y="267" width="90" height="38" rx="6" fill="#bae6fd"/>
+    <rect x="370" y="225" width="90" height="38" rx="6" fill="#e0f2fe"/><rect x="370" y="267" width="90" height="38" rx="6" fill="#bae6fd"/>
+    <rect x="470" y="225" width="90" height="38" rx="6" fill="#e0f2fe"/><rect x="470" y="267" width="90" height="38" rx="6" fill="#bae6fd"/>
+    <!-- row int8 -->
+    <rect x="170" y="345" width="90" height="38" rx="6" fill="#fef3c7"/><rect x="170" y="387" width="90" height="38" rx="6" fill="#fde68a"/>
+    <rect x="270" y="345" width="90" height="38" rx="6" fill="#fef3c7"/><rect x="270" y="387" width="90" height="38" rx="6" fill="#fde68a"/>
+    <rect x="370" y="345" width="90" height="38" rx="6" fill="#fef3c7"/><rect x="370" y="387" width="90" height="38" rx="6" fill="#fde68a"/>
+    <rect x="470" y="345" width="90" height="38" rx="6" fill="#fef3c7"/><rect x="470" y="387" width="90" height="38" rx="6" fill="#fde68a"/>
+    <!-- row nf4 -->
+    <rect x="170" y="465" width="90" height="38" rx="6" fill="#fee2e2"/><rect x="170" y="507" width="90" height="38" rx="6" fill="#fecaca"/>
+    <rect x="270" y="465" width="90" height="38" rx="6" fill="#fee2e2"/><rect x="270" y="507" width="90" height="38" rx="6" fill="#fecaca"/>
+    <rect x="370" y="465" width="90" height="38" rx="6" fill="#fee2e2"/><rect x="370" y="507" width="90" height="38" rx="6" fill="#fecaca"/>
+    <rect x="470" y="465" width="90" height="38" rx="6" fill="#fee2e2"/><rect x="470" y="507" width="90" height="38" rx="6" fill="#fecaca"/>
+  </g>
+  <g font-size="14" font-weight="600" text-anchor="middle">
+    <text x="215" y="330" fill="#0369a1">기준</text><text x="315" y="330" fill="#0369a1">기준</text><text x="415" y="330" fill="#0369a1">기준</text><text x="515" y="330" fill="#0369a1">기준</text>
+    <text x="215" y="448" fill="#92400e">+0.72%</text><text x="315" y="448" fill="#92400e">+0.19%</text><text x="415" y="448" fill="#92400e">+0.54%</text><text x="515" y="448" fill="#92400e">+0.73%</text>
+    <text x="215" y="570" fill="#b91c1c">+5.66%</text><text x="315" y="570" fill="#b91c1c">+5.57%</text><text x="415" y="570" fill="#b91c1c">+5.94%</text><text x="515" y="570" fill="#b91c1c">+5.79%</text>
+  </g>
+
+  <!-- right: findings -->
+  <rect x="630" y="130" width="530" height="460" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="656" y="168" font-size="19" font-weight="700" fill="#334155">결과</text>
+  <rect x="656" y="188" width="478" height="100" rx="12" fill="#ecfdf5" stroke="#059669"/>
+  <text x="676" y="222" font-size="18" font-weight="700" fill="#065f46">상호작용 없음 — 더해지기만 한다</text>
+  <text x="676" y="252" font-size="15" fill="#065f46">NF4 PPL 페널티: α 1000배 범위에서 변동폭 0.37%p</text>
+  <text x="676" y="276" font-size="15" fill="#065f46">압축 × α 분산 비중 0.2% · F = 0.15</text>
+  <rect x="656" y="302" width="478" height="80" rx="12" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="676" y="334" font-size="18" font-weight="700" fill="#9a3412">INT8: 품질 손실 없이 2.19배 느림</text>
+  <text x="676" y="362" font-size="15" fill="#9a3412">VRAM −15% · 라운드당 11.7분 → 25.5분</text>
+  <rect x="656" y="396" width="478" height="80" rx="12" fill="#eef2ff" stroke="#4f46e5"/>
+  <text x="676" y="428" font-size="18" font-weight="700" fill="#3730a3">양자화는 통신량을 줄이지 않는다</text>
+  <text x="676" y="456" font-size="15" fill="#3730a3">24런 전부 라운드당 17,301,504 바이트</text>
+  <rect x="656" y="490" width="478" height="80" rx="12" fill="#f1f5f9" stroke="#64748b"/>
+  <text x="676" y="522" font-size="18" font-weight="700" fill="#334155">null 결과를 설계 진단으로 회고</text>
+  <text x="676" y="550" font-size="15" fill="#334155">드리프트 최소 설정 · 드리프트 미측정 · 구성 타당도</text>
+</svg>
