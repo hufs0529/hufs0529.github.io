@@ -82,6 +82,26 @@
     - null 결과를 설계 진단(드리프트 최소 설정, 측정 부재, 구성 타당도)으로 회고
   repo: https://github.com/hufs0529/peft_fl_STEM_placement
 
+- id: fl-rag-rerank
+  title: 검색 연산으로 통신을 되살 수 있는가 — 연합 LLM 파인튜닝에서 리랭킹의 교환비
+  summary: >-
+    Macquarie University STEM Research Placement(6주) 두 번째 연구. 연합 RAG 파인튜닝에서 클라이언트 측
+    리랭킹 깊이를 높이면 목표 정확도까지의 라운드(= 통신 바이트)가 줄어드는지, 그 교환비를 24개 실행으로 측정했습니다.
+    처리는 의도대로 작동했지만 학습은 따라오지 않았고, 인과 사슬이 끊어진 고리를 찾아냈습니다.
+  period: 2026.09 – 2026.10 (6주)
+  role: 1인 연구 · 설계 · 구현 · 실험 · 분석 (멘토 피드백)
+  status: 완료
+  featured: true
+  cover: /assets/img/portfolio/fl-rag-rerank/cover.svg
+  stack: [Flower, PyTorch, PEFT(LoRA), SmolLM2-135M, Qdrant, bge-small, Cross-encoder, Natural Questions]
+  highlights:
+    - 처리 축 하나(리랭킹 깊이 d)만 바꾸고 통신 예산 1.74 GB 를 모든 실행에 고정, d=3 순서 통제군
+    - 파일럿 게이트 3개(성능 여유 · 처리 단조성 · 로컬 스텝 보정)로 null 결과의 해석 가능성 확보
+    - 목표 정확도를 고르지 않고 63개 τ 를 훑어 라운드 절감을 곡선으로 보고
+    - 교환비 10개 중 8개 음수, 클라이언트 업데이트 발산은 0.77% 만 움직임 → 끊어진 고리 특정
+    - 설계 약속을 테스트 333개와 코드로 강제, 통계 규칙 오류(t=3.182)를 스스로 찾아 정정
+  repo: https://github.com/hufs0529/rag_fl_STEM_placement
+
 # ── 다음 프로젝트 템플릿 ─────────────────────────────────────────────
 # - id: my-next-project
 #   title: 프로젝트 이름

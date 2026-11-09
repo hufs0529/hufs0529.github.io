@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Pretendard, 'Noto Sans KR', 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <text x="600" y="58" text-anchor="middle" font-size="27" font-weight="700" fill="#0f172a">검색 연산으로 통신을 되살 수 있는가 — 리랭킹의 교환비</text>
+  <text x="600" y="94" text-anchor="middle" font-size="18" fill="#475569">Flower · LoRA · SmolLM2-135M · Natural Questions · Macquarie University STEM Placement · 6주</text>
+
+  <rect x="40" y="125" width="1120" height="110" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="600" y="172" text-anchor="middle" font-size="26" font-weight="700" fill="#0f172a" font-family="ui-monospace, Menlo, monospace">total bytes = R × N × |AB| × 2</text>
+  <text x="600" y="210" text-anchor="middle" font-size="16" fill="#475569">PEFT · 양자화 · 희소화는 |AB| 를 줄인다 — 이 연구는 R(필요 라운드)을 검색 품질로 줄일 수 있는지 측정</text>
+
+  <text x="600" y="276" text-anchor="middle" font-size="18" font-weight="700" fill="#334155">가설의 인과 사슬 — 어디서 끊어졌나</text>
+  <g font-size="16" font-weight="600" text-anchor="middle">
+    <rect x="40" y="300" width="250" height="110" rx="14" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+    <text x="165" y="338" fill="#065f46">① 리랭킹 깊이 ↑</text><text x="165" y="362" fill="#065f46">→ 더 나은 문서</text>
+    <text x="165" y="392" font-size="15" font-weight="700" fill="#047857">✓ 새 문서 비율 0 → 52.5%</text>
+
+    <rect x="330" y="300" width="250" height="110" rx="14" fill="#fef2f2" stroke="#dc2626" stroke-width="3"/>
+    <text x="455" y="338" fill="#991b1b">② 더 나은 문서</text><text x="455" y="362" fill="#991b1b">→ 일관된 학습</text>
+    <text x="455" y="392" font-size="15" font-weight="700" fill="#b91c1c">✗ 발산 변화 0.77%</text>
+
+    <rect x="620" y="300" width="250" height="110" rx="14" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="745" y="338" fill="#475569">③ 일관된 학습</text><text x="745" y="362" fill="#475569">→ 더 적은 라운드</text>
+    <text x="745" y="392" font-size="15" fill="#64748b">63개 τ 중 최대 5개</text>
+
+    <rect x="910" y="300" width="250" height="110" rx="14" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="1035" y="338" fill="#475569">④ 더 적은 라운드</text><text x="1035" y="362" fill="#475569">→ 더 적은 바이트</text>
+    <text x="1035" y="392" font-size="15" fill="#64748b">교환비 10개 중 8개 음수</text>
+  </g>
+  <g stroke="#475569" stroke-width="2.5" marker-end="url(#ar)">
+    <line x1="292" y1="355" x2="327" y2="355"/><line x1="582" y1="355" x2="617" y2="355"/><line x1="872" y1="355" x2="907" y2="355"/>
+  </g>
+
+  <rect x="40" y="440" width="1120" height="150" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+  <g font-size="16" fill="#334155">
+    <text x="70" y="480"><tspan font-weight="700">단일 처리 축</tspan>  리랭킹 깊이 d ∈ {0, 3, 7, 10, 25, 50} × 시드 4 = 24 실행 · 프롬프트에는 언제나 문서 3개</text>
+    <text x="70" y="514"><tspan font-weight="700">고정 예산</tspan>  모든 실행이 통신 1.74 GB (59 라운드) · 조기 종료 없음 · 평가는 모두 d = 0 문서로</text>
+    <text x="70" y="548"><tspan font-weight="700">통제군</tspan>  d = 3 은 순서만 바꾸고 문서는 못 바꿈 — 가장 큰 절감이 바로 이 통제군에서 나옴</text>
+    <text x="70" y="576" font-size="15" fill="#64748b">파일럿 게이트 3개 · 63개 목표 정확도 sweep · 테스트 333개 · Zenodo 아카이브</text>
+  </g>
+</svg>
